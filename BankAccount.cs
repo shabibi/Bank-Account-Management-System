@@ -33,18 +33,20 @@ namespace OOPPart1Task
         //BankAccount methods
 
         //Deposit
-        public decimal Deposit(decimal amount)
+        public void Deposit()
         {
-            if (amount > 0)
-            {
-                Balance += amount;
-                return Balance;
-            }
-            else
-            {
-                Console.WriteLine("Sorry.. Invaild amount to Deposit");
-                return -1;
-            }
+                Console.WriteLine("Enter the Amount to Deposit");
+                decimal amount = decimal.Parse(Console.ReadLine());
+
+                if (amount > 0)
+                {
+                    Balance += amount;
+                }
+                else
+                {
+                    Console.WriteLine("Sorry.. Invaild amount to Deposit");
+                }
+           
         }
 
         //Withdraw
