@@ -11,8 +11,8 @@ namespace OOPPart1Task
     {
         /// BankAccount private properties
 
-        public string AccountNumber { get;private set; }
-        public string AccountHolder { get;private set; }
+        private string AccountNumber;
+        private string AccountHolder;
         public decimal Balance  { get;private set; }
 
         //BankAccount constructors 
