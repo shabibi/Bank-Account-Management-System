@@ -69,5 +69,15 @@ namespace OOPPart1Task
             Console.WriteLine($"Balance: {Balance}");
         }
 
+        public bool IsAccountNumberValid(string accountNumber)
+        {
+            if(AccountNumber == accountNumber)
+            {
+                return true;
+            }
+            else 
+                return false;
+        }
+
     }
 }
