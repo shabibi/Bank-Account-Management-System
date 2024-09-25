@@ -50,16 +50,19 @@ namespace OOPPart1Task
         }
 
         //Withdraw
-        public decimal Withdraw(decimal amount)
+        public void Withdraw()
         {
+            Console.WriteLine("Enter the Amount to Withdraw");
+            decimal amount = decimal.Parse(Console.ReadLine());
+
             if (amount > 0)
             {
-                return Balance += amount;
+                Balance -= amount;
             }
             else
             {
                 Console.WriteLine("Sorry..Your Balance less than the amount");
-                return -1;
+                
             }
         }
 
