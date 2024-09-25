@@ -66,5 +66,17 @@ namespace OOPPart1Task
             Console.WriteLine("\nAccount Not Found..")
             return null;
         }
+
+        // method to display all accounts with their balance
+        public void DisplayAllAccounts()
+        {
+            Console.Clear();
+            Console.WriteLine("********************Display All Accounts********************\n");
+            Console.WriteLine("_____________________________________________________________\n");
+            for (int i = 0; i < Accounts.Count; i++)
+            {
+                Console.WriteLine(Accounts[i].ToString());
+            }
+        }
     }
 }
