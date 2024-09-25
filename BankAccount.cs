@@ -30,6 +30,44 @@ namespace OOPPart1Task
             Balance = amount;
         }
 
+        //BankAccount methods
+
+        //Deposit
+        public decimal Deposit(decimal amount)
+        {
+            if (amount > 0)
+            {
+                Balance += amount;
+                return Balance;
+            }
+            else
+            {
+                Console.WriteLine("Sorry.. Invaild amount to Deposit");
+                return -1;
+            }
+        }
+
+        //Withdraw
+        public decimal Withdraw(decimal amount)
+        {
+            if (amount > 0)
+            {
+                return Balance += amount;
+            }
+            else
+            {
+                Console.WriteLine("Sorry..Your Balance less than the amount");
+                return -1;
+            }
+        }
+
+        //GetAccountInfo
+        public void GetAccountInfo()
+        {
+            Console.WriteLine($"Account Number: {AccountNumber}");
+            Console.WriteLine($"Holder Name: {AccountHolder}");
+            Console.WriteLine($"Balance: {Balance}");
+        }
 
     }
 }
