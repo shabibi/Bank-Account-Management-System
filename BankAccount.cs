@@ -15,7 +15,21 @@ namespace OOPPart1Task
         public string AccountHolder { get;private set; }
         public decimal Balance  { get;private set; }
 
+        //BankAccount constructors 
+        public BankAccount(string AccountNum, string AccountName)
+        {
+            AccountNumber = AccountNum;
+            AccountHolder = AccountName;
+        }
+
         
+        public BankAccount(string AccountNum, string AccountName, decimal amount)
+        {
+            AccountNumber = AccountNum;
+            AccountHolder = AccountName;
+            Balance = amount;
+        }
+
 
     }
 }
