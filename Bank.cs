@@ -8,8 +8,11 @@ namespace OOPPart1Task
 {
     public class Bank
     {
-        public List<BankAccount> Accounts = new List<BankAccount>();
+        public List<BankAccount> Accounts;
 
+       
+
+        // method to add a new account
         public void AddAccount()
         {
             Console.Clear();
@@ -42,6 +45,26 @@ namespace OOPPart1Task
             }
 
 
+        }
+
+        // method to get an account by AccountNumber
+        public BankAccount GetAccountByNumber()
+        {
+            Console.Clear();
+            Console.WriteLine("********************Get Account By Number********************\n");
+            Console.WriteLine("_____________________________________________________________\n");
+            Console.WriteLine("Enter Acoount Number ");
+            string AccountNum = Console.ReadLine();
+            for (int i = 0; i < Accounts.Count; i++)
+            {
+                if (Accounts[i].IsAccountNumberValid(AccountNum))
+                {
+                    return Accounts[i];
+                }
+               
+            }
+            Console.WriteLine("\nAccount Not Found..")
+            return null;
         }
     }
 }
