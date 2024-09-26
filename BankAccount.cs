@@ -35,35 +35,57 @@ namespace OOPPart1Task
         //Deposit
         public void Deposit()
         {
-                Console.WriteLine("Enter the Amount to Deposit");
-                decimal amount = decimal.Parse(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine("********************Deposit********************\n");
+            Console.WriteLine("_____________________________________________________________\n");
+            Console.WriteLine("\nYour Balance is " + Balance);
+            Console.WriteLine("\nEnter the Amount to Deposit");
+            decimal amount = decimal.Parse(Console.ReadLine());
 
-                if (amount > 0)
-                {
-                    Balance += amount;
-                }
-                else
-                {
-                    Console.WriteLine("Sorry.. Invaild amount to Deposit");
-                }
-           
+            if (amount > 0)
+            {
+                
+                Balance += amount;
+                Console.WriteLine("\nYour Balance After Deposit is " + Balance);
+            }
+            else
+            {
+                Console.WriteLine("Sorry.. Invaild amount to Deposit");
+                return;
+            }
         }
 
         //Withdraw
         public void Withdraw()
         {
-            Console.WriteLine("Enter the Amount to Withdraw");
+            Console.Clear();
+            Console.WriteLine("********************Withdraw********************\n");
+            Console.WriteLine("_____________________________________________________________\n");
+            Console.WriteLine("Your Balance is " + Balance);
+            Console.WriteLine("\nEnter the Amount to Withdraw");
             decimal amount = decimal.Parse(Console.ReadLine());
-
-            if (amount > 0)
+            if (Balance >= amount)
             {
-                Balance -= amount;
+                if (amount > 0)
+                {
+                    
+                    Balance -= amount;
+                    Console.WriteLine("\nYour Balance After Withdraw is " + Balance);
+                }
+                else
+                {
+                    Console.WriteLine("Sorry.. Invaild amount to Withdraw");
+                }
+
+
             }
             else
             {
-                Console.WriteLine("Sorry..Your Balance less than the amount");
-                
+                Console.WriteLine("\nSorry..Your Balance less than the amount");
+
             }
+
+
         }
 
         //GetAccountInfo
