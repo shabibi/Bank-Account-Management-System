@@ -8,10 +8,17 @@ namespace OOPPart1Task
 {
     public class Bank
     {
-        public List<BankAccount> Accounts;
+       static  public List<BankAccount> Accounts=new List<BankAccount>();
 
-       
-
+        
+        static Bank()
+        {
+            
+            Accounts.Add(new BankAccount("444", "mmm"));
+            Accounts.Add(new BankAccount("555", "ccc"));
+            Accounts.Add(new BankAccount("999", "ddd", 8));
+            Accounts.Add(new BankAccount("888", "ddd", 10));
+        }
         // method to add a new account
         public void AddAccount()
         {
@@ -20,7 +27,14 @@ namespace OOPPart1Task
             Console.WriteLine("_______________________________________________________\n");
             Console.WriteLine("Enter Acoount Number ");
             string AccountNum = Console.ReadLine();
-
+            for (int i = 0; i < Accounts.Count; i++)
+            {
+                if(Accounts[i].IsAccountNumberValid(AccountNum))
+                {
+                    Console.WriteLine("This Account Number Regestered befor..\n");
+                    return;
+                }
+            }
             Console.WriteLine("\nEnter Acoount Holder ");
             string AccountName = Console.ReadLine();
 
@@ -28,7 +42,7 @@ namespace OOPPart1Task
             Console.WriteLine(" 1.yes\n 2.No ");
             string AddAmount = Console.ReadLine();
 
-            if(AccountNum == "1")
+            if (AddAmount == "1")
             {
                 Console.WriteLine("\nEnter the Amount");
                 decimal amount = decimal.Parse(Console.ReadLine());
@@ -38,12 +52,12 @@ namespace OOPPart1Task
             else if (AddAmount == "2")
             {
                 Accounts.Add(new BankAccount(AccountNum, AccountName));
+                Console.WriteLine("\nNew Account Added Successfully..");
             }
             else
             {
                 Console.WriteLine("\nInvalid input..");
             }
-
 
         }
 
@@ -63,7 +77,7 @@ namespace OOPPart1Task
                 }
                
             }
-            Console.WriteLine("\nAccount Not Found..")
+            Console.WriteLine("\nAccount Not Found..");
             return null;
         }
 
@@ -75,8 +89,11 @@ namespace OOPPart1Task
             Console.WriteLine("_____________________________________________________________\n");
             for (int i = 0; i < Accounts.Count; i++)
             {
-                Console.WriteLine(Accounts[i].ToString());
+                Accounts[i].GetAccountInfo();
+                Console.WriteLine("_____________________________________________________________\n");
             }
         }
+
+        
     }
 }
