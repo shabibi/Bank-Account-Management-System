@@ -22,11 +22,19 @@ namespace OOPPart1Task
         // method to add a new account
         public void AddAccount()
         {
+           
             Console.Clear();
             Console.WriteLine("********************Add New Account********************\n");
             Console.WriteLine("_______________________________________________________\n");
             Console.WriteLine("Enter Acoount Number ");
             string AccountNum = Console.ReadLine();
+
+            if(AccountNum.All(char.IsDigit) == false)
+            {
+                Console.WriteLine("Invalid Input..");
+                return;
+            }
+            
             for (int i = 0; i < Accounts.Count; i++)
             {
                 if(Accounts[i].IsAccountNumberValid(AccountNum))
