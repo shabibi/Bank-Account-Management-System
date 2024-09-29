@@ -11,8 +11,8 @@ namespace OOPPart1Task
     {
         /// BankAccount private properties
 
-        private string AccountNumber;
-        private string AccountHolder;
+        public string AccountNumber { get; private set; }
+        public string AccountHolder { get; private set; }
         public decimal Balance  { get;private set; }
 
         //BankAccount constructors 
@@ -33,20 +33,14 @@ namespace OOPPart1Task
         //BankAccount methods
 
         //Deposit
-        public void Deposit()
+        public void Deposit(decimal amount)
         {
-            Console.Clear();
-            Console.WriteLine("********************Deposit********************\n");
-            Console.WriteLine("_____________________________________________________________\n");
-            Console.WriteLine("\nYour Balance is " + Balance);
-            Console.WriteLine("\nEnter the Amount to Deposit");
-            decimal amount = decimal.Parse(Console.ReadLine());
+            
 
             if (amount > 0)
             {
-                
                 Balance += amount;
-                Console.WriteLine("\nYour Balance After Deposit is " + Balance);
+                
             }
             else
             {
