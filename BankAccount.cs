@@ -35,51 +35,13 @@ namespace OOPPart1Task
         //Deposit
         public void Deposit(decimal amount)
         {
-            
-
-            if (amount > 0)
-            {
                 Balance += amount;
-                
-            }
-            else
-            {
-                Console.WriteLine("Sorry.. Invaild amount to Deposit");
-                return;
-            }
         }
 
         //Withdraw
-        public void Withdraw()
+        public void Withdraw(decimal amount)
         {
-            Console.Clear();
-            Console.WriteLine("********************Withdraw********************\n");
-            Console.WriteLine("_____________________________________________________________\n");
-            Console.WriteLine("Your Balance is " + Balance);
-            Console.WriteLine("\nEnter the Amount to Withdraw");
-            decimal amount = decimal.Parse(Console.ReadLine());
-            if (Balance >= amount)
-            {
-                if (amount > 0)
-                {
-                    
                     Balance -= amount;
-                    Console.WriteLine("\nYour Balance After Withdraw is " + Balance);
-                }
-                else
-                {
-                    Console.WriteLine("Sorry.. Invaild amount to Withdraw");
-                }
-
-
-            }
-            else
-            {
-                Console.WriteLine("\nSorry..Your Balance less than the amount");
-
-            }
-
-
         }
 
         //GetAccountInfo

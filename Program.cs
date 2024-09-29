@@ -35,8 +35,7 @@
                         break;
 
                     case 3:
-                        BankAccount BA2 = bank.GetAccountByNumber();
-                        BA2.Withdraw();
+                        DepositWithdraw();
 
                         break;
 
@@ -74,10 +73,16 @@
                 Console.WriteLine("\nYour Balance is " + BA.Balance);
                 Console.WriteLine("\nEnter the Amount to Deposit");
                 decimal amount = decimal.Parse(Console.ReadLine());
-                BA.Deposit(amount);
+                
                 if (amount > 0)
                 {
+                    BA.Deposit(amount);
                     Console.WriteLine("\nYour Balance After Deposit is " + BA.Balance);
+                }
+                else
+                {
+                    Console.WriteLine("Sorry.. Invaild amount to Deposit");
+                    return;
                 }
             }
             else
@@ -85,6 +90,42 @@
                 Console.WriteLine("\nAccount Not Found..");
             }
 
+        }
+        public static void DepositWithdraw()
+        {
+            BankAccount BA = bank.GetAccountByNumber();
+
+            Console.Clear();
+            Console.WriteLine("********************Withdraw********************\n");
+            Console.WriteLine("_____________________________________________________________\n");
+            if (BA != null)
+            {
+                Console.WriteLine("Your Balance is " + BA.Balance);
+                Console.WriteLine("\nEnter the Amount to Withdraw");
+                decimal amount = decimal.Parse(Console.ReadLine());
+
+                if (amount > 0)
+                {
+                    if (BA.Balance >= amount)
+                    {
+                        BA.Withdraw(amount);
+                        Console.WriteLine("\nYour Balance After Withdraw is " + BA.Balance);
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nSorry..Your Balance less than the amount");
+
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Sorry.. Invaild amount to Withdraw");
+                }
+            }
+            else
+            {
+                Console.WriteLine("\nAccount Not Found..");
+            }
         }
     }
 
